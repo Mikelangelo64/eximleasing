@@ -1,0 +1,92 @@
+-
+  const menuPopupList = [
+    {
+      name: 'Главная',
+      href: '#',
+      goto: 'false',
+      isActive: 'true',
+      submenu: [],
+    },
+    {
+      name: 'Системы видеонаблюдения',
+      href: '#',
+      goto: 'false',
+      isActive: 'false',
+      submenu: [
+        {
+          name: 'Для предприятий',
+          href: '#',
+          goto: 'false',
+        },
+        {
+          name: 'Для игорного бизнеса',
+          href: '#',
+          goto: 'false',
+        },
+        {
+          name: 'Для жилых помещений',
+          href: '#',
+          goto: 'false',
+        },
+      ],
+    },
+    {
+      name: 'Контакты',
+      href: '#',
+      goto: '.footer',
+      isActive: 'false',
+      submenu: [],
+    },
+  ];
+
+.modal-menu__header
+  button.popup__close
+    img(src=require('@/assets/img/popup-close-black.svg'), alt='close')
+
+.modal-menu__main
+  nav.menu
+    ul.menu-list.accordion(data-is-label-click='true')
+      each item in menuList
+        li.menu-list__item(
+          class=`${item.submenu.length !== 0 ? 'accordion__item' : ''}`
+        )
+          .menu-list__item__header
+            a.menu__link(
+              class=`${item.goto !== 'false' ? 'anchor' : ''}`,
+              href=`${item.href}`,
+              data-goto=`${item.goto}`
+            ) #{ item.name }
+
+            if item.submenu.length !== 0
+              button.accordion__label
+
+          if item.submenu.length !== 0
+            .accordion__details
+              ul.menu-submenu-list.accordion__description
+                each subItem in item.submenu
+                  li
+                    a.menu-submenu__link(
+                      class=`${subItem.goto !== 'false' ? 'anchor' : ''}`,
+                      href=`${subItem.href}`,
+                      data-goto=`${subItem.goto}`
+                    ) #{ subItem.name }
+
+  .dropdown.mobile.accordion(data-is-label-click='false')
+    .accordion__item
+      button.accordion__summary.dropdown__header Наші проекти
+        |
+        span.accordion__label
+
+      .accordion__details
+        ul.dropdown-list.accordion__description
+          each item in dropdownList
+            li.dropdown-list__item
+              a.dropdown-list__link(
+                href=`${item.href}`,
+                target='_blank',
+                rel='noreferrer'
+              )= item.name
+
+//- .modal-menu__footer
+//-   button.button-hollow.popup-open.modal-menu__button(data-popup='_popup-form')
+//-     span Обратный звонок

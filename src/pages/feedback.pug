@@ -1,0 +1,27 @@
+-
+  isFooterNearSeo = false;
+  const pageTitle = 'Зворотний зв\'язок';
+  const breadcrumbsName = 'Зворотний зв\'язок';
+
+doctype html
+html(lang='en')
+  head
+    include @/layout/head.pug
+
+    title Зворотний зв'язок ТОВ "Укрексімлізинг"
+
+    link(rel='stylesheet', href=require('@/styles/pages/feedback.scss'))
+
+  body
+    include @/layout/header.pug
+
+    include @/templates/breadcrumbs.pug
+
+    include @/templates/feedback.pug
+
+    //- include @/templates/seo-banner.pug
+
+    include @/layout/footer.pug
+
+    //- script(src=require('@/scripts/video.ts')) 
+    script(src=require('../index.ts')) 

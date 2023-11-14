@@ -1,0 +1,72 @@
+@import '../base';
+
+.breadcrumbs__container {
+  margin-top: var(--header-height, #{px-to-rem(80)});
+  
+  color: var(--color-white);
+  background-color: var(--color-blue);
+  
+  @include viewport-tablet-min {
+    padding-top: px-to-rem(30);
+    padding-bottom: px-to-rem(30);
+  }
+
+  @include viewport-phone {
+    padding-top: px-to-rem(14);
+    padding-bottom: px-to-rem(14);
+  }
+
+  > * + * {
+    margin-top: px-to-rem(22);
+  }
+}
+
+.breadcrumbs {
+  display: flex;
+
+  font-weight: 400;
+  font-size: px-to-rem(16);
+  line-height: 112%;
+  color: rgba(var(--color-white--rgb), 0.8);
+
+  a {
+    position: relative;
+    display: inline-block;
+    text-decoration: unset;
+    color: var(--color-white);
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background-color: currentColor;
+
+      @include transition(transform 0.4s);
+      transform-origin: 0;
+      transform: scale(0, 1);
+
+      @at-root .breadcrumbs a:hover::before {
+        @include non-mobile-device {
+          transform: scale(1);
+        }
+      }
+
+      @at-root .breadcrumbs a:focus-visible::before {
+        @include non-mobile-device {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+
+  span {
+    display: inline-block;
+  }
+
+  .breadcrumb_last {
+    word-spacing: normal;
+  }
+}

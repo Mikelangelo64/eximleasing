@@ -1,0 +1,124 @@
+.documents {
+  padding: px-to-rem(34) 0 px-to-rem(50);
+
+  //.documents__wrapper 
+  &__wrapper {
+    width: 100%;
+  }
+  
+  //.documents-list 
+  &-list {
+    --documents-gap: #{px-to-rem(30)};
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    //.documents-list__item 
+    &__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      width: 100%;
+      border: 1px solid var(--color-grey-200);
+      border-radius: px-to-rem(6);
+      padding: px-to-rem(12);
+      margin: calc(var(--documents-gap) * 0.5);
+
+      font-size: px-to-rem(16);
+      color: var(--color-blue-100);
+
+      @include viewport-desktop {
+        max-width: calc(25% - var(--documents-gap));
+      }
+
+      @include viewport-tablet {
+        max-width: calc(33.333% - var(--documents-gap));
+      }
+
+      @include viewport-phone {
+        max-width: calc(50% - var(--documents-gap));
+
+        @media (max-width: 650px) {
+          max-width: unset;
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
+
+      > * + * {
+        margin-top: px-to-rem(16);
+      }
+    }
+  }
+
+  //.documents__link 
+  &__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include transition(color 0.3s);
+    text-decoration: unset;
+    text-align: center;
+    color: currentColor;
+
+    @include hover-focus-visible {
+      @include non-mobile-device {
+        color: var(--color-black);
+      }
+    }
+
+    > * + * {
+      margin-top: px-to-rem(16);
+    }
+  }
+  
+  //.documents__img 
+  &__img {
+    display: block;
+    max-width: px-to-rem(70);
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  //.documents__title 
+  &__title {
+    text-align: center;
+  }
+  
+  //.documents__terms 
+  &__terms {
+    text-align: center;
+  }
+  
+  //.documents-link-list 
+  &-link-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    > * + * {
+      margin-top: px-to-rem(16);
+    }
+
+    //.documents-link-list__item 
+    &__item {
+      @include transition(color 0.3s);
+      text-decoration: unset;
+      color: currentColor;
+
+      @include hover-focus-visible {
+        @include non-mobile-device {
+          color: var(--color-black);
+        }
+      }
+    }
+  }
+}

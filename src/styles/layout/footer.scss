@@ -1,0 +1,241 @@
+@import '../base';
+
+.footer { 
+  overflow: hidden;
+
+  color: var(--color-white);
+  background-color: var(--color-black);
+
+  @include viewport-desktop {
+    padding-top: px-to-rem(100);
+  }
+
+  @include viewport-tablet {
+    padding-top: px-to-rem(80);
+  }
+
+  @include viewport-phone {
+    padding-top: px-to-rem(50);
+  }
+  
+  //.footer__wrapper 
+  &__wrapper {
+    width: 100%;
+
+    > * + * {
+      @include viewport-tablet-min {
+        margin-top: px-to-rem(60);
+      }
+      @include viewport-phone {
+        margin-top: px-to-rem(50);
+      }
+    }
+  }
+
+  //.footer__main 
+  &__main {
+    display: flex;
+    width: 100%;
+
+    @include viewport-tablet-min {
+      // max-width: px-to-rem(1024);
+      margin-left: auto;
+      margin-right: 0;
+      justify-content: space-between;
+    }
+
+    @include viewport-phone {
+      flex-direction: column;
+    }
+
+    > * + * {
+      @include viewport-tablet-min {
+        margin-left: px-to-rem(40);
+      }
+      @include viewport-phone {
+        margin-top: px-to-rem(36);
+      }
+    }
+  }
+  
+  //.footer__item 
+  &__item {
+    width: 100%;
+
+    > * + * {
+      margin-top: px-to-rem(16);
+    }
+  }
+  
+  //.footer__logo 
+  &__logo {
+    @include viewport-tablet-min {
+      max-width: px-to-rem(186);
+    }
+  }
+  
+  //.footer-contacts 
+  &-contacts {
+    display: flex;
+    width: 100%;
+
+    @include viewport-desktop {
+      justify-content: space-between;
+    }
+
+    @include viewport-tablet {
+      flex-direction: column;
+    }
+
+    @include viewport-phone {
+      // max-width: max-content;
+      flex-direction: column;
+      // margin-left: auto;
+      // margin-right: auto;
+    }
+
+    > * + * {
+      @include viewport-desktop {
+        margin-left: px-to-rem(20);
+      }
+
+      @include viewport-tablet-max {
+        margin-top: px-to-rem(22);
+      }
+    }
+    
+    // //.footer-contacts__link 
+    &__link {
+      --color-theme: var(--color-white);
+      --color-reverse: var(--color-blue-100);
+    }
+  }
+
+  //.footer-bottom 
+  &-bottom {
+    width: calc(100% + 2 * var(--wrap));
+    margin-left: calc(-1 * var(--wrap));
+    padding: px-to-rem(30) 0;
+
+    background-color: var(--color-blue);
+    
+    //.footer-bottom__container 
+    &__container {
+      padding-left: var(--wrap);
+      padding-right: var(--wrap);
+
+      @include viewport-tablet-min {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      > * + * {
+        @include viewport-tablet-min {
+          margin-left: px-to-rem(24);
+        }
+  
+        @include viewport-phone {
+          margin-top: px-to-rem(24);
+        }
+      }
+    }
+
+    //.footer-bottom__item 
+    &__item {
+      > * + * {
+        margin-top: px-to-rem(24);
+      }
+    }
+
+    //.footer-bottom__link 
+    &__link {
+      @include transition(color 0.4s);
+      text-decoration: unset;
+      color: var(--color-white);
+
+      @include hover-focus-visible {
+        @include non-mobile-device {
+          color: var(--color-grey-100);
+        }
+      }
+    }
+  }
+
+  //.footer__copyright 
+  &__copyright {
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 116%;
+    font-size: px-to-rem(16);
+  }
+
+  //.footer__group 
+  &__group {
+    font-weight: 400;
+    line-height: 116%;
+    font-size: px-to-rem(16);
+    
+    a {
+      display: inline-block;
+      margin-left: 0.25em;
+
+      @include transition(color 0.3s);
+      text-decoration: unset;  
+      color: inherit;
+
+      @include hover-focus-visible {
+        @include non-mobile-device {
+          color: var(--color-grey-100);
+        }
+      }
+    }
+  }
+}
+
+.develop {
+  display: flex;
+  align-items: center;
+
+  text-decoration: unset;
+  font-weight: 600;
+  line-height: 116%;
+  font-size: px-to-rem(14);
+  color: var(--color-white);
+
+  > * + * {
+    margin-left: px-to-rem(6);
+  }
+
+  //.develop__text 
+  &__text {
+    @include transition(color 0.4s);
+    color: inherit;
+
+    @at-root .develop:hover & {
+      @include non-mobile-device {
+        color: var(--color-grey-100);
+      }
+    }
+    @at-root .develop:focus-visible & {
+      @include non-mobile-device {
+        color: var(--color-grey-100);
+      }
+    }
+  }
+  
+  //.develop__img 
+  &__img {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: px-to-rem(94);
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+

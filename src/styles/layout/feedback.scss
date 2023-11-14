@@ -1,0 +1,12 @@
+.feedback {
+  //.feedback__wrapper 
+  &__wrapper {
+    width: 100%;
+  }
+
+  //.feedback-popup 
+  &-popup {
+    max-width: px-to-rem(600);
+    width: 100%;
+  }
+}

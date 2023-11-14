@@ -1,0 +1,25 @@
+.section.seo-banner.light
+  ._container
+    .seo-banner__wrapper
+      .seo-banner-bg
+        .seo-banner-bg__img
+          img(
+            src=require('@/assets/img/seo-banner.png'),
+            alt='seo-banner',
+            loading='lazy'
+          )
+
+      .seo-banner__content
+        .section-header.seo-banner-header
+          p.section-header__subtitle PRO BONO
+
+          p.section-header__title.seo-banner__title Ми пропонуємо <span>PRO BONO</span> послугу
+
+        p.seo-banner__subtitle За результатами консультації ми можемо запропонувати
+
+        p.seo-banner__description екпрес-оцінку кредитоспроможності вашої компанії безкоштовно
+
+        button.button-filled.seo-banner__button.popup-open(
+          data-popup='_popup-form'
+        )
+          span Потрібна консультація

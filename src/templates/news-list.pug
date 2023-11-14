@@ -1,0 +1,56 @@
+-
+  const newsList = [
+    {
+      image: '@/assets/img/news/news-1.jpg',
+      title: 'Івано-Франківськ отримав 9 нових автобусів',
+      date: {
+        title: '17 листопада 2020',
+        value: '2020-11-17T00:00:00+00:00'
+      },
+      description: 'Фінансова установа ТОВ «Ексімлізинг», за підтримки Державний Укрексімбанк уклала лізингову угоду з комунальним підприємством «Електроавтотранс» Івано-Франківської міської ради щодо фінансування придбання містом дев’яти пасажирських автобусів.',
+    },
+    {
+      image: '@/assets/img/news/news-2.jpg',
+      title: 'Складдання бізнес плану та супровід для кав’ярні',
+      date: {
+        title: '21 травня 2019',
+        value: '2019-05-21T00:00:00+00:00'
+      },
+      description: 'У Миколаєві презентували 23 пасажирські автобуси МАЗ 206086, які були придбані містом на умовах фінансового лізингу від ТОВ «Ексімлізинг» – фінансової установи, заснованої за участі АТ «Укрексімбанк».',
+    },
+    {
+      image: '@/assets/img/news/news-3.jpg',
+      title: 'Супровід фінансування компанії',
+      date: {
+        title: '01 червня 2017',
+        value: '2017-06-01T11:39:00+00:00'
+      },
+      description: 'Національна комісія що здійснює регулювання у сфері ринків фінансових послуг розпорядження від 30.05.2017',
+    },
+  ];
+
+section.news.news-page.grey
+  ._container
+    .news-page__wrapper
+      ul.news-list
+        - for (let i=0; i<6; i++)
+          each item in newsList
+            .news-list__item.news-item
+              a.news-item-media(href='#')
+                span.news-item-media__container
+                  img(
+                    src=require(`${item.image}`),
+                    alt=`${item.title}`,
+                    loading='lazy'
+                  )
+
+              .news-item__content
+                time.news-item__published(datetime=`${item.date.value}`)= item.date.title
+
+                a.news-item__link(href='#')
+                  h3.news-item__title= item.title
+
+                p.news-item__description= item.description
+
+                a.news-item__button.button-hollow(href='#')
+                  span Детальніше

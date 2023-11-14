@@ -1,0 +1,48 @@
+-
+  const partnersList = [
+    {
+      image: '@/assets/img/partners/partner-1.jpg',
+      title: 'Ukreuromaz',
+      href: 'https://ukreuromaz.com/'
+    },
+    {
+      image: '@/assets/img/partners/partner-2.png',
+      title: 'Astra',
+      href: 'https://astra-group.ua/'
+    },
+    {
+      image: '@/assets/img/partners/partner-3.jpg',
+      title: 'Agro techica',
+      href: 'http://agrotecnica.com.ua/'
+    },
+    {
+      image: '@/assets/img/partners/partner-4.jpg',
+      title: 'titan machinery',
+      href: 'https://www.titanmachinery.ua'
+    },
+    {
+      image: '@/assets/img/partners/partner-5.jpg',
+      title: 'jhon deere',
+      href: 'https://www.deere.ua/uk/'
+    },
+    {
+      image: '@/assets/img/partners/partner-6.png',
+      title: 'amako',
+      href: 'https://amacoint.com/'
+    },
+  ];
+
+section.partners.section.white
+  ._container
+    .partners__warpper
+      .partners__header
+        h2.partners__title Наші партнери
+
+        p.partners__description Запрошуємо виробників і постачальників товарів та послуг до співпраці
+
+      ul.partners-list
+        each item in partnersList
+          li
+            a.partners-list__item(href=`${item.href}`, title=`${item.title}`, target='_blank', rel='noreferrer')
+              .partners-list__image
+                img(src=require(`${item.image}`), alt=`${item.title}`)

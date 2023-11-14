@@ -1,0 +1,59 @@
+-
+  const servicesList = [
+    {
+      href: '#',
+      title: 'Лізинг легокового автотранспорту',
+    },
+    {
+      href: '#',
+      title: 'Лізинг обладнання та техніки',
+    },
+    {
+      href: '#',
+      title: 'Лізінг сільскогосподарської техніки',
+    },
+    {
+      href: '#',
+      title: ' Лізинг обладнання та техніки',
+    },
+    {
+      href: '#',
+      title: 'Лізинг нерухомості',
+    },
+    {
+      href: '#',
+      title: 'Зворотний лізинг. Ваш оборотний капітал',
+    },
+    {
+      href: '#',
+      title: 'Законодавство',
+    },
+    {
+      href: '#',
+      title: 'Необхідні документи для отримання лізингу',
+    },
+  ];
+
+section.services.grey
+  ._container
+    .services__wrapper
+      .services__header
+        h2.services__title Наші послуги
+
+        p.services__description Найзручніший спосіб придбання основних засобів з повним комплектом супутніх послуг
+
+      ul.services-list
+        each item, index in servicesList
+          li
+            a.services-list__item(href=`${item.href}`)
+              span.services-list__label
+                img.visible(
+                  src=require(`@/assets/img/services/service-${index + 1}.svg`),
+                  alt=`service-${index + 1}`
+                )
+                img.hover(
+                  src=require(`@/assets/img/services/service-hover-${index + 1}.svg`),
+                  alt=`service-${index + 1}`
+                )
+
+              span.services-list__title= item.title

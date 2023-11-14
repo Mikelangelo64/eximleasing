@@ -1,0 +1,129 @@
+.banner {
+  position: relative;
+  z-index: 0;
+
+  min-height: calc(var(--vh, 1vh) * 50);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: var(--header-height, #{px-to-rem(80)});
+  padding-top: 0;
+  // padding-bottom: 0;
+  //overflow: hidden;
+
+  //.banner__container 
+  &__container {
+    position: relative;
+    z-index: 1;
+    padding-top: px-to-rem(50);
+    // padding-bottom: px-to-rem(50);
+  }
+  
+  //.banner__wrapper 
+  &__wrapper {
+    width: 100%;
+
+    @include viewport-tablet-min {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    > * + * {
+      @include viewport-tablet-min {
+        margin-left: px-to-rem(46);
+      }
+
+      @include viewport-phone {
+        margin-top: px-to-rem(46);
+      }
+    }
+  }
+
+  //.banner__content 
+  &__content {
+    width: 100%;
+    text-align: center;
+
+    // @include viewport-desktop {
+    //   max-width: px-to-rem(476);
+    // }
+    // @include viewport-tablet {
+    //   max-width: px-to-rem(380);
+    // }
+    // @include viewport-phone {
+    //   max-width: px-to-rem(460);
+    // }
+
+    > * + * {
+      margin-top: px-to-rem(28);
+    }
+  }
+  
+  //.banner__title 
+  &__title {
+    @include text-heading-1;
+
+    display: block;
+    // max-width: px-to-rem(370);
+  }
+  
+  //.banner__description 
+  &__description {
+    @include viewport-tablet-min {
+      font-size: px-to-rem(18);
+    }
+    @include viewport-phone {
+      font-size: px-to-rem(16);
+    }
+
+    span {
+      font-weight: 800;
+    }
+  }
+  
+  //.banner-media 
+  &-media {
+    @include absolute-fullsize;
+    z-index: 0;
+    width: 100%;
+
+    @include viewport-phone {
+      max-width: px-to-rem(480);
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      @include absolute-fullsize;
+
+      background-color: rgba(var(--color-blue--rgb), 0.58);
+    }
+
+    //.banner-media__container 
+    &__container {
+      // width: 100%;
+      // overflow: hidden;
+
+      // transform: translateZ(0);
+      // background-color: var(--color-white);
+
+      // @include viewport-tablet-min {
+      //   border-radius: 0 px-to-rem(6) px-to-rem(6) 0;
+      // }
+
+      // @include viewport-phone {
+      //   border-radius: 0 0 px-to-rem(6) px-to-rem(6);
+      // }
+    }
+
+    img,
+    video {
+      @include absolute-fullsize;
+      object-fit: cover;
+      object-position: 50% 50%;
+    }
+  }
+}

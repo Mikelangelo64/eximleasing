@@ -1,0 +1,38 @@
+.contacts-popup {
+  width: 100%;
+  text-align: left;
+  
+  //.case-popup__main 
+  &__main {
+    width: 100%;
+
+    > * + * {
+      margin-top: px-to-rem(24);
+    }
+  }
+  
+  //.case-popup__title 
+  &__title {
+    @include text-heading-2;
+
+    @include viewport-desktop {
+      font-size: px-to-rem(32);
+    }
+    @include viewport-phone {
+      font-size: px-to-rem(28);
+    }
+  }
+  
+  //.contacts-popup-list 
+  &-list {
+    > * + * {
+      margin-top: px-to-rem(20);
+    }
+
+    //.contacts-popup-list__link 
+    &__link {
+      --color-theme: var(--color-black);
+      --color-reverse: var(--color-blue);
+    }
+  }
+}

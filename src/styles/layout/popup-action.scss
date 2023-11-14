@@ -1,0 +1,10 @@
+.popup-action {
+  > * + * {
+    margin-top: px-to-rem(34);
+  }
+
+  //.popup-action__title 
+  &__title {
+    @include text-heading-3;
+  }
+}

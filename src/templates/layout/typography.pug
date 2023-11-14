@@ -1,0 +1,21 @@
+article.section.grey.typography-article(
+  class=`${classTypography ? classTypography : ''} ${hasTableTypography ? 'with-table' : ''}`
+)
+  ._container.typography-article__container
+    .typography-article__wrapper
+      .typography
+        each item in typography 
+          case item.type 
+            when 'image'
+              figure
+                img(
+                  src=require(`${item.data}`),
+                  alt='typography',
+                  loading='lazy'
+                )
+
+            when 'text'
+              != item.data
+
+            when 'table'
+              != item.data

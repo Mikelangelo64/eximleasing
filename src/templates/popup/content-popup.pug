@@ -1,0 +1,31 @@
+-
+  const popupCaseTypography = `
+    <p>
+      Консалтингова компанія ТОВ «ДІСКОРБ» є частиною міжнародної Групи компаній Caspit. Нашою метою ми бачимо: зрозуміти особливості бізнесу, з яким маємо страву, та забезпечити досягнення поставлених клієнтами цілей.
+    </p>
+    <p>
+      Ми фокусуємося на роботі з клієнтами малого та середнього бізнесу, які хочуть отримати новий імпульс в динаміці розвитку, представляємо їх інтереси у переговорах з фінансовими установами для забезпечення очікуваного результату.
+    </p>
+  `;
+
+.contacts-popup
+  .contacts-popup__main
+    p.contacts-popup__title Контакти:
+
+    ul.contacts-popup-list.contact-list
+      each item in headerContacts
+        li(class=`${item.additional ? 'additional' : ''}`)
+          a.contacts-popup-list__link.contact-link(
+            href=`${item.href}`,
+            target=`${item.isTargetBlank === 'true' ? '_blank' : '_self'}`
+          )
+            span.contact-link__label!= item.image
+
+            span.contact-link__text= item.title
+
+          if item.additional
+            a.contacts-popup-list__link.contact-link.additional(
+              href=`${item.additional.href}`,
+              target=`${item.isTargetBlank === 'true' ? '_blank' : '_self'}`
+            )
+              span.contact-link__text= item.additional.title

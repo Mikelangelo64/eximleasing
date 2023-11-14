@@ -1,0 +1,170 @@
+-
+  isFooterNearSeo = false;
+  const pageTitle = 'Лізінг вантажного автотранспорту';
+  const breadcrumbsName = 'Лізінг вантажного автотранспорту';
+
+  const documentList = [
+    {
+      isMultiple: 'false',
+      title: 'Примірний договір надання фінансових послуг (лізинговий) (діяв до 08.10.2018)',
+      href: '#',
+    },
+    {
+      isMultiple: 'false',
+      title: 'Примірний договір надання фінансових послуг (лізинговий) (діяв до 08.10.2018)',
+      href: '#',
+    },
+    {
+      isMultiple: 'false',
+      title: 'Примірний договір надання фінансових послуг (лізинговий) (діяв до 08.10.2018)',
+      href: '#',
+    },
+    {
+      isMultiple: 'false',
+      title: 'Примірний договір надання фінансових послуг (лізинговий) (діяв до 08.10.2018)',
+      href: '#',
+    },
+    {
+      isMultiple: 'false',
+      title: 'Примірний договір надання фінансових послуг (лізинговий) (діяв до 08.10.2018)',
+      href: '#',
+    },
+    {
+      isMultiple: 'true',
+      title: 'Примірний договір надання фінансових послуг (лізинговий):',
+      terms: '(діяв до 16.06.2021)',
+      links: [
+        {
+          title: 'Валютний',
+          href: '#',
+        },
+        {
+          title: 'Гривня',
+          href: '#',
+        },
+      ],
+    },
+  ];
+
+  const classTypography = 'service-page__typography'
+  const hasTableTypography = 'true'
+
+  const typography = [
+    {
+      type: 'text',
+      data: `
+        <p>
+          На виконання вимог чинного законодавства України, фінансова установа до укладення з клієнтом (споживачем фінансових послуг) договору про надання фінансової послуги надає йому інформацію про:
+        </p>
+      `
+    },
+    {
+      type: 'table',
+      data: `
+        <table>
+          <tbody>
+            <tr>
+              <td colspan="2">
+                <strong>I. Загальна інформація про ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ «ЕКСІМЛІЗИНГ» (далі – Товариство) </strong>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="width: 30%;">
+                <strong>1.1.повне найменування Товариства:</strong>
+              </td>
+              <td style="width: 65%;">
+                <strong>ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ «ЕКСІМЛІЗИНГ»</strong>
+
+                <p>(скорочене найменування згідно Статуту – ТОВ «ЕКСІМЛІЗИНГ»)</p>
+                <p>англійською мовою: Limited Liability Company «EXIMLEASING».</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="width: 30%;">
+                <strong>1.1.повне найменування Товариства:</strong>
+              </td>
+              <td style="width: 65%;">
+                <strong>ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ «ЕКСІМЛІЗИНГ»</strong>
+
+                <p>(скорочене найменування згідно Статуту – ТОВ «ЕКСІМЛІЗИНГ»)</p>
+                <p>англійською мовою: Limited Liability Company «EXIMLEASING».</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="width: 30%;">
+                <strong>1.1.повне найменування Товариства:</strong>
+              </td>
+              <td style="width: 65%;">
+                <strong>ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ «ЕКСІМЛІЗИНГ»</strong>
+
+                <p>(скорочене найменування згідно Статуту – ТОВ «ЕКСІМЛІЗИНГ»)</p>
+                <p>англійською мовою: Limited Liability Company «EXIMLEASING».</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      `
+    },
+    //- {
+    //-   type: 'image',
+    //-   data: '@/assets/img/news/typography-1.jpg'
+    //- },
+  ];
+
+doctype html
+html(lang='en')
+  head
+    include @/layout/head.pug
+
+    title Лізінг вантажного автотранспорту ТОВ "Укрексімлізинг"
+
+    link(rel='stylesheet', href=require('@/styles/pages/service-page.scss'))
+
+  body
+    include @/layout/header.pug
+
+    include @/templates/breadcrumbs.pug
+
+    section.service-page
+      ._container
+        .service-page__wrapper
+          .service-page__header
+            h1.service-page__title Лізінг вантажного автотранспорту
+
+            p.service-page__description Повний комплекс послуг з придбання, страхування, супроводу та сервісного обслуговування автомобіля
+
+    include @/layout/typography.pug
+
+    .documents
+      ._container
+        .documents__wrapper
+          .documents-list
+            each item in documentList
+              .documents-list__item
+                if (item.isMultiple === 'true')
+                  .documents__img 
+                    img(src=require('@/assets/img/document.svg'), alt=`${item.title}`)
+
+                  p.documents__title= item.title
+
+                  .documents-link-list
+                    each link, index in item.links
+                      a.documents-link-list__item(href=`${link.href}`)= `${index + 1}. ${link.title}`
+
+                  if item.terms 
+                    p.documents__terms= item.terms
+
+                else
+                  a.documents__link(href=`${item.href}`)
+                    span.documents__img 
+                      img(src=require('@/assets/img/document.svg'), alt=`${item.title}`)
+
+                    span.documents__title= item.title
+
+    include @/layout/footer.pug
+
+    //- script(src=require('@/scripts/video.ts')) 
+    script(src=require('../index.ts')) 

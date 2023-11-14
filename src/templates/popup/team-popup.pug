@@ -1,0 +1,25 @@
+-
+  const popupTeamTypography = `
+    <p>
+      Консалтингова компанія ТОВ «ДІСКОРБ» є частиною міжнародної Групи компаній Caspit. Нашою метою ми бачимо: зрозуміти особливості бізнесу, з яким маємо страву, та забезпечити досягнення поставлених клієнтами цілей.
+    </p>
+    <p>
+      Ми фокусуємося на роботі з клієнтами малого та середнього бізнесу, які хочуть отримати новий імпульс в динаміці розвитку, представляємо їх інтереси у переговорах з фінансовими установами для забезпечення очікуваного результату.
+    </p>
+  `;
+
+.popup-team-content
+  .popup-team-media
+    .popup-team-media__container
+      img(
+        src=require('@/assets/img/team/team-popup.jpg'),
+        alt='team',
+        loading='lazy'
+      )
+
+  .popup-team__main
+    p.popup-team__name Петро Петренко
+
+    p.popup-team__post Генеральний директор
+
+    .popup-team__typography.typography!= popupTeamTypography

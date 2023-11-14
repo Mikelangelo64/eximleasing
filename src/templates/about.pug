@@ -1,0 +1,21 @@
+-
+  const aboutTypography = `
+    <p>
+      <strong>Ексімлізинг - </strong>це персоналізовані пропозиції, привабливі умови та якісний сервіс, підкріплений значним досвідом комплексних фінансових рішень.
+    </p>
+  `;
+
+section.about
+  ._container
+    .about__warpper
+      .about-media
+        .about-media__container
+          img(src=require('@/assets/img/about-media.jpg'), alt='about')
+
+      .about__content
+        h2.about__title Про компанію
+
+        .about__typography.typography!= aboutTypography
+
+        button.about__button.button-filled.popup-open(data-popup='_popup-form')
+          span Зворотній зв'язок

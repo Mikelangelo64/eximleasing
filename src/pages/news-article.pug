@@ -1,0 +1,147 @@
+-
+  isFooterNearSeo = false;
+  const pageTitle = 'Новини';
+  const breadcrumbsName = 'Івано-Франківськ отримав 9 нових автобусів';
+
+  const classTypography = 'news-article__typography'
+
+  const typography = [
+    {
+      type: 'text',
+      data: `
+        <p>
+          Фінансова установа ТОВ «Ексімлізинг», за підтримки Державний Укрексімбанк уклала лізингову угоду з комунальним підприємством «Електроавтотранс» Івано-Франківської міської ради щодо фінансування придбання містом дев’яти пасажирських автобусів.
+        </p>
+        <p>
+          Поповнення муніципального парку новими автобусами дозволить підвищити якість перевезення пасажирів та розширити мережу маршрутів комунального транспорту об’єднаної територіальної громади.
+        </p>
+        <p>
+          «За механізмом фінансового лізингу від Укрексімбанку загальним обсягом 750 тисяч євро (екв.) місто придбало чотири автобуси білоруського виробництва марки «МАЗ» та п’ять – турецького виробника «Guleryuz».
+        </p>
+        <p>
+          Перевагами нових автобусів є комфорт та доступність для всіх пасажирів, адже вони низькопідлогові та пристосовані для перевезення маломобільних груп громадян. Також автобуси такого класу завдяки невеликим габаритам зможуть безпечно їздити вузькими вулицями та приміськими селами.
+        </p>
+        <p>
+          Нагадаємо, що раніше ТОВ «Ексімлізинг» було профінансовано придбання 7 сучасних пасажирських автобусів для Ужгорода та 23 – 
+          <a href="https://www.eximb.com/ua/bank/press/novyny-banku/mikolaiv-otrimav-novi-avtobusi-profinansovani-lizingovoyu-kompanieyu-ukreksimbanku.html" target="_blank" rel="noopener noreferrer">для Миколаєва</a>
+          .
+        </p>
+      `
+    },
+    //- {
+    //-   type: 'image',
+    //-   data: '@/assets/img/news/typography-1.jpg'
+    //- },
+  ];
+
+  const newsRelated = [
+    {
+      image: '@/assets/img/news/news-2.jpg',
+      title: 'Складдання бізнес плану та супровід для кав’ярні',
+      date: {
+        title: '21 травня 2019',
+        value: '2019-05-21T00:00:00+00:00'
+      },
+      description: 'У Миколаєві презентували 23 пасажирські автобуси МАЗ 206086, які були придбані містом на умовах фінансового лізингу від ТОВ «Ексімлізинг» – фінансової установи, заснованої за участі АТ «Укрексімбанк».',
+    },
+    {
+      image: '@/assets/img/news/news-3.jpg',
+      title: 'Супровід фінансування компанії',
+      date: {
+        title: '01 червня 2017',
+        value: '2017-06-01T11:39:00+00:00'
+      },
+      description: 'Національна комісія що здійснює регулювання у сфері ринків фінансових послуг розпорядження від 30.05.2017',
+    },
+  ];
+
+doctype html
+html(lang='en')
+  head
+    include @/layout/head.pug
+
+    title Івано-Франківськ отримав 9 нових автобусів ТОВ "Укрексімлізинг"
+
+    link(rel='stylesheet', href=require('@/styles/pages/news-article.scss'))
+
+  body
+    include @/layout/header.pug
+
+    include @/templates/breadcrumbs.pug
+
+    section.news-article.grey
+      ._container.news-article__container
+        .news-article__wrapper
+          .news-article__media
+            img(
+              src=require('@/assets/img/news/article-banner.jpg'),
+              alt='article-banner',
+              loading='lazy'
+            )
+
+          .date.news-article-date
+            .date__label
+              img(src=require('@/assets/img/date.svg'), alt='date')
+
+            time.date__value(datatime='2020-11-17T00:00:00+00:00') 17 листопада 2020
+
+          h1.news-article__title Івано-Франківськ отримав 9 нових автобусів
+
+    include @/layout/typography.pug
+
+    .news-article-controls.section.grey
+      ._container
+        .news-article-controls__wrapper
+          a.button-hollow.news-article-controls__button(href='#') 
+            span попередня
+
+          a.button-hollow.news-article-controls__button(href='#') 
+            span наступна
+
+    section.news.news-section.related.grey
+      ._container
+        .news-section__wrapper
+          .news-section-header
+            h2.news-section__title Схожі новини
+
+            a.news-section__link.button-hollow.desktop(href='#')
+              span Усі новини
+
+          .news-section__main
+            .news-slider.swiper.slider
+              .swiper-wrapper
+                each item in newsRelated
+                  .swiper-slide
+                    .news-slider__item.news-item
+                      a.news-item-media(href='#')
+                        span.news-item-media__container
+                          img(
+                            src=require(`${item.image}`),
+                            alt=`${item.title}`,
+                            loading='lazy'
+                          )
+
+                      .news-item__content
+                        time.news-item__published(
+                          datetime=`${item.date.value}`
+                        )= item.date.title
+
+                        a.news-item__link(href='#')
+                          h3.news-item__title= item.title
+
+                        //- p.news-item__description= item.description
+
+                        a.news-item__button.button-hollow(href='#')
+                          span Детальніше
+
+            .news-slider-controls.slider-controls
+              .news-slider-pagination.slider-pagination
+
+          .news-section__footer
+            a.news-section__link.button-hollow(href='#')
+              span Усі новини
+
+    include @/layout/footer.pug
+
+    //- script(src=require('@/scripts/video.ts')) 
+    script(src=require('../index.ts')) 

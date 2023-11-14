@@ -1,0 +1,27 @@
+-
+  isFooterNearSeo = false;
+  const pageTitle = 'Партнери';
+  const breadcrumbsName = 'Партнери';
+
+doctype html
+html(lang='en')
+  head
+    include @/layout/head.pug
+
+    title Партнери ТОВ "Укрексімлізинг"
+
+    link(rel='stylesheet', href=require('@/styles/pages/partners.scss'))
+
+  body
+    include @/layout/header.pug
+
+    include @/templates/breadcrumbs.pug
+
+    include @/templates/partners.pug
+
+    //- include @/templates/seo-banner.pug
+
+    include @/layout/footer.pug
+
+    //- script(src=require('@/scripts/video.ts')) 
+    script(src=require('../index.ts')) 
