@@ -18,10 +18,6 @@
     },
     {
       href: '#',
-      name: 'EXIM Leasing'
-    },
-    {
-      href: '#',
       name: 'Discorb'
     },
   ];
@@ -188,9 +184,8 @@ header.header
 
       .header-main
         a.custom-logo-link.header__logo(href='#') 
-          img(
+          img.custom-logo(
             src=require('@/assets/img/logo.svg'),
-            class='custom-logo',
             alt='logo',
             draggable='false'
           )
@@ -235,6 +230,6 @@ header.header
 
   button.scroll-up.button-filled
     span
-      img(src=require('@/assets/img/arrow-up.svg'), alt="scroll-up")
+      img(src=require('@/assets/img/arrow-up.svg'), alt='scroll-up')
 
   include @/layout/popup.pug
